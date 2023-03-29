@@ -31,7 +31,7 @@ st.dataframe(fruit_to_show)
 #my_cur.execute("insert into fruit_load_list values ('from Streamlit');")
 
 
-def get_fruitvice_data(this_fruit_coice)
+def get_fruitvice_data(this_fruit_coice):
     fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + this_fruit_coice)
     fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
     return fruityvice_normalized
