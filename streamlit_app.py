@@ -4,7 +4,7 @@ import requests;
 import snowflake.connector
 from urllib.error import URLError
 
-st.stop()
+
 
 
 my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
@@ -54,3 +54,4 @@ add_my_fruit = st.text_input('What fruit would you like to add?','')
 my_cur.execute("insert into fruit_load_list values ('" + add_my_fruit + "');")
 st.write('Thanks for adding ', add_my_fruit)
 
+st.stop()
