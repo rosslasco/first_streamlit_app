@@ -22,9 +22,9 @@ fruit_to_show = my_fruit_list.loc[fruits_selected]
 st.dataframe(fruit_to_show)
 
 
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + "kiwi")
 st.header("Fruityvice Fruit Advice!")
-st.text(fruityvice_response.json())
+# st.text(fruityvice_response.json())
 
 # write your own comment -what does the next line do? deserialize json
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
