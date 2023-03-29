@@ -31,21 +31,20 @@ st.dataframe(fruit_to_show)
 #my_cur.execute("insert into fruit_load_list values ('from Streamlit');")
 
 
-#import requests;
+def get_fruitvice_data(this_fruit_coice)
+    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + this_fruit_coice)
+    fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+    return fruityvice_normalized
+
 st.header("Fruityvice Fruit Advice!")
-# st.text(fruityvice_response.json())
 try:
   fruit_choice = st.text_input('What fruit would you like information about?')
   if not fruit_choice:
     st.error("Please select a fruit to get information")
-  else:
-    #st.write('The user entered ', fruit_choice)
+  else
     #my_cur.execute("insert into fruit_load_list values ('from Streamlit');")
-    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-    # write your own comment -what does the next line do? deserialize json
-    fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-    # write your own comment - what does this do?  create table
-    st.dataframe(fruityvice_normalized)
+    back_from_function = get_fruitvice_data(fruit_choice)
+    st.dataframe(back_from_function)
 
 except URLError as e:
   st.error()
