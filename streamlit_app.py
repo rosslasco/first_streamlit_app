@@ -24,7 +24,7 @@ fruits_selected = st.multiselect("Pick some fruits:", list(my_fruit_list.index),
 # Display the table on the page.
 fruit_to_show = my_fruit_list.loc[fruits_selected]
 st.dataframe(fruit_to_show)
-my_cur.execute("insert into fruit_load_list values ('" + my_fruit_list + "');")
+my_cur.execute("insert into fruit_load_list values ('" + fruits_selected + "');")
 
 
 
