@@ -22,6 +22,6 @@ fruit_to_show = my_fruit_list.loc[fruits_selected]
 st.dataframe(fruit_to_show)
 
 
-fruityvice_response = request.get("https://fruityvice.com/api/fruit/watermelo")
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
 st.text(fruityvice_response)
 
