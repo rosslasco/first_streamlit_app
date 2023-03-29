@@ -23,5 +23,5 @@ st.dataframe(fruit_to_show)
 
 
 fruityvice_response = request.get("https://fruityvice.com/api/fruit/watermelo")
-streamlit.text(fruityvice_response)
+st.text(fruityvice_response)
 
