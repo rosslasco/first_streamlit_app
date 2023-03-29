@@ -50,8 +50,8 @@ if st.button('Get Fruit Load List'):
     my_data_rows = get_fruit_load_list()
     st.dataframe(my_data_rows)
 
-add_my_fruit = st.text_input('What fruit would you like to add?','')
-my_cur.execute("insert into fruit_load_list values ('" + add_my_fruit + "');")
-st.write('Thanks for adding ', add_my_fruit)
+#add_my_fruit = st.text_input('What fruit would you like to add?','')
+#my_cur.execute("insert into fruit_load_list values ('" + add_my_fruit + "');")
+#st.write('Thanks for adding ', add_my_fruit)
 
 st.stop()
