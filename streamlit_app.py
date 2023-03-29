@@ -28,24 +28,24 @@ fruits_selected = st.multiselect("Pick some fruits:", list(my_fruit_list.index),
 # Display the table on the page.
 fruit_to_show = my_fruit_list.loc[fruits_selected]
 st.dataframe(fruit_to_show)
-my_cur.execute("insert into fruit_load_list values ('from Streamlit');")
+#my_cur.execute("insert into fruit_load_list values ('from Streamlit');")
 
 
 #import requests;
 st.header("Fruityvice Fruit Advice!")
 # st.text(fruityvice_response.json())
 try:
-fruit_choice = st.text_input('What fruit would you like information about?')
-if not fruit_choice:
-  st.error("Please select a fruit to get information")
- else:
-st.write('The user entered ', fruit_choice)
-my_cur.execute("insert into fruit_load_list values ('from Streamlit');")
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-# write your own comment -what does the next line do? deserialize json
-fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-# write your own comment - what does this do?  create table
-st.dataframe(fruityvice_normalized)
+  fruit_choice = st.text_input('What fruit would you like information about?')
+  if not fruit_choice:
+    st.error("Please select a fruit to get information")
+  else:
+    #st.write('The user entered ', fruit_choice)
+    #my_cur.execute("insert into fruit_load_list values ('from Streamlit');")
+    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+    # write your own comment -what does the next line do? deserialize json
+    fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+    # write your own comment - what does this do?  create table
+    st.dataframe(fruityvice_normalized)
 
 except URLError as e:
   st.error()
